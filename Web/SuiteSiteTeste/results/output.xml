@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.10.2 on win32)" generated="20220125 13:45:27.714" rpa="false" schemaversion="2">
+<suite id="s1" name="TesteBDD" source="C:\Users\thigo\projeto teste\Teste\Web\SuiteSiteTeste\tests\TesteBDD.robot">
+<test id="s1-t1" name="Cenario 01: Pesquisar Veículo existente">
+<kw name="Abrir navegador" library="Resource" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220125 13:45:27.886" level="INFO">Opening browser 'chrome' to base url 'https://hportal.webmotors.com.br/'.</msg>
+<status status="PASS" starttime="20220125 13:45:27.886" endtime="20220125 13:46:07.909"/>
+</kw>
+<status status="PASS" starttime="20220125 13:45:27.886" endtime="20220125 13:46:07.909"/>
+</kw>
+<kw name="Dado acesso a pagina home" library="Resource" sourcename="Dado ${keyword}">
+<kw name="Run Keyword" library="BuiltIn">
+<arg>${keyword}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<kw name="acesso a pagina home" library="Resource">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=#root &gt; div.sc-bdVaJa.bjRMar &gt; div.sc-htpNat.iPWKQm &gt; button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220125 13:46:07.911" level="INFO">Clicking element 'css=#root &gt; div.sc-bdVaJa.bjRMar &gt; div.sc-htpNat.iPWKQm &gt; button'.</msg>
+<status status="PASS" starttime="20220125 13:46:07.911" endtime="20220125 13:46:08.057"/>
+</kw>
+<status status="PASS" starttime="20220125 13:46:07.911" endtime="20220125 13:46:08.057"/>
+</kw>
+<status status="PASS" starttime="20220125 13:46:07.911" endtime="20220125 13:46:08.057"/>
+</kw>
+<status status="PASS" starttime="20220125 13:46:07.911" endtime="20220125 13:46:08.057"/>
+</kw>
+<kw name="Quando digitar nome do veiculo &quot;gol&quot;" library="Resource" sourcename="Quando ${keyword}">
+<kw name="Run Keyword" library="BuiltIn">
+<arg>${keyword}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<kw name="digitar nome do veiculo &quot;gol&quot;" library="Resource" sourcename="digitar nome do veiculo &quot;${VEICULO}&quot;">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=searchBar</arg>
+<arg>${VEICULO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220125 13:46:08.059" level="INFO">Typing text 'gol' into text field 'id=searchBar'.</msg>
+<status status="PASS" starttime="20220125 13:46:08.058" endtime="20220125 13:46:08.232"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220125 13:46:18.412" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220125 13:46:08.232" endtime="20220125 13:46:18.412"/>
+</kw>
+<status status="PASS" starttime="20220125 13:46:08.058" endtime="20220125 13:46:18.412"/>
+</kw>
+<status status="PASS" starttime="20220125 13:46:08.058" endtime="20220125 13:46:18.413"/>
+</kw>
+<status status="PASS" starttime="20220125 13:46:08.058" endtime="20220125 13:46:18.413"/>
+</kw>
+<kw name="E clicar no botão ver ofertas" library="Resource" sourcename="E ${keyword}">
+<kw name="Run Keyword" library="BuiltIn">
+<arg>${keyword}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<kw name="clicar no botão ver ofertas" library="Resource">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=#WhiteBox &gt; div.NavBar &gt; div.NavBar--content &gt; div &gt; div &gt; div &gt; div &gt; div &gt; div &gt; a:nth-child(2)</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220125 13:46:18.414" level="INFO">Clicking element 'css=#WhiteBox &gt; div.NavBar &gt; div.NavBar--content &gt; div &gt; div &gt; div &gt; div &gt; div &gt; div &gt; a:nth-child(2)'.</msg>
+<msg timestamp="20220125 13:46:18.578" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220125 13:46:18.580" level="FAIL">Element with locator 'css=#WhiteBox &gt; div.NavBar &gt; div.NavBar--content &gt; div &gt; div &gt; div &gt; div &gt; div &gt; div &gt; a:nth-child(2)' not found.</msg>
+<status status="FAIL" starttime="20220125 13:46:18.414" endtime="20220125 13:46:18.580"/>
+</kw>
+<status status="FAIL" starttime="20220125 13:46:18.414" endtime="20220125 13:46:18.581"/>
+</kw>
+<status status="FAIL" starttime="20220125 13:46:18.413" endtime="20220125 13:46:18.581"/>
+</kw>
+<status status="FAIL" starttime="20220125 13:46:18.413" endtime="20220125 13:46:18.581"/>
+</kw>
+<kw name="Então validar demonstração de veículo pesquisado" library="Resource" sourcename="Então ${keyword}">
+<status status="NOT RUN" starttime="20220125 13:46:18.582" endtime="20220125 13:46:18.582"/>
+</kw>
+<kw name="Fechar Navegador" library="Resource" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220125 13:46:18.583" endtime="20220125 13:46:20.847"/>
+</kw>
+<status status="PASS" starttime="20220125 13:46:18.583" endtime="20220125 13:46:20.848"/>
+</kw>
+<status status="FAIL" starttime="20220125 13:45:27.885" endtime="20220125 13:46:20.848">Element with locator 'css=#WhiteBox &gt; div.NavBar &gt; div.NavBar--content &gt; div &gt; div &gt; div &gt; div &gt; div &gt; div &gt; a:nth-child(2)' not found.</status>
+</test>
+<test id="s1-t2" name="Cenario 02: Pesquisar Veículo não existente">
+<kw name="Abrir navegador" library="Resource" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220125 13:46:20.854" level="INFO">Opening browser 'chrome' to base url 'https://hportal.webmotors.com.br/'.</msg>
+<status status="PASS" starttime="20220125 13:46:20.853" endtime="20220125 13:46:59.740"/>
+</kw>
+<status status="PASS" starttime="20220125 13:46:20.853" endtime="20220125 13:46:59.740"/>
+</kw>
+<kw name="Dado acesso a pagina home" library="Resource" sourcename="Dado ${keyword}">
+<kw name="Run Keyword" library="BuiltIn">
+<arg>${keyword}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<kw name="acesso a pagina home" library="Resource">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=#root &gt; div.sc-bdVaJa.bjRMar &gt; div.sc-htpNat.iPWKQm &gt; button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220125 13:46:59.742" level="INFO">Clicking element 'css=#root &gt; div.sc-bdVaJa.bjRMar &gt; div.sc-htpNat.iPWKQm &gt; button'.</msg>
+<status status="PASS" starttime="20220125 13:46:59.741" endtime="20220125 13:47:00.007"/>
+</kw>
+<status status="PASS" starttime="20220125 13:46:59.741" endtime="20220125 13:47:00.007"/>
+</kw>
+<status status="PASS" starttime="20220125 13:46:59.741" endtime="20220125 13:47:00.007"/>
+</kw>
+<status status="PASS" starttime="20220125 13:46:59.741" endtime="20220125 13:47:00.008"/>
+</kw>
+<kw name="Quando digitar nome do veiculo &quot;inexistente&quot;" library="Resource" sourcename="Quando ${keyword}">
+<kw name="Run Keyword" library="BuiltIn">
+<arg>${keyword}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<kw name="digitar nome do veiculo &quot;inexistente&quot;" library="Resource" sourcename="digitar nome do veiculo &quot;${VEICULO}&quot;">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=searchBar</arg>
+<arg>${VEICULO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220125 13:47:00.009" level="INFO">Typing text 'inexistente' into text field 'id=searchBar'.</msg>
+<status status="PASS" starttime="20220125 13:47:00.009" endtime="20220125 13:47:00.356"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220125 13:47:06.484" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220125 13:47:00.356" endtime="20220125 13:47:06.484"/>
+</kw>
+<status status="PASS" starttime="20220125 13:47:00.008" endtime="20220125 13:47:06.484"/>
+</kw>
+<status status="PASS" starttime="20220125 13:47:00.008" endtime="20220125 13:47:06.484"/>
+</kw>
+<status status="PASS" starttime="20220125 13:47:00.008" endtime="20220125 13:47:06.484"/>
+</kw>
+<kw name="Então Validar demonstração de mensagem &quot;Não encontramos este termo, verifique a ortografia&quot;" library="Resource" sourcename="Então ${keyword}">
+<kw name="Run Keyword" library="BuiltIn">
+<arg>${keyword}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<kw name="Validar demonstração de mensagem &quot;Não encontramos este termo, verifique a ortografia&quot;" library="Resource">
+<kw name="Sleep" library="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220125 13:47:16.501" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20220125 13:47:06.486" endtime="20220125 13:47:16.501"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=//div[@class="SearchBar__results__result no-result"][contains(text(),"Não encontramos este termo, verifique a ortografia")]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220125 13:47:16.524" level="INFO">Current page contains element 'xpath=//div[@class="SearchBar__results__result no-result"][contains(text(),"Não encontramos este termo, verifique a ortografia")]'.</msg>
+<status status="PASS" starttime="20220125 13:47:16.501" endtime="20220125 13:47:16.524"/>
+</kw>
+<status status="PASS" starttime="20220125 13:47:06.486" endtime="20220125 13:47:16.524"/>
+</kw>
+<status status="PASS" starttime="20220125 13:47:06.486" endtime="20220125 13:47:16.524"/>
+</kw>
+<status status="PASS" starttime="20220125 13:47:06.485" endtime="20220125 13:47:16.524"/>
+</kw>
+<kw name="Fechar Navegador" library="Resource" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220125 13:47:16.525" endtime="20220125 13:47:19.769"/>
+</kw>
+<status status="PASS" starttime="20220125 13:47:16.525" endtime="20220125 13:47:19.769"/>
+</kw>
+<status status="PASS" starttime="20220125 13:46:20.852" endtime="20220125 13:47:19.771"/>
+</test>
+<status status="FAIL" starttime="20220125 13:45:27.716" endtime="20220125 13:47:19.775"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="1" skip="0" id="s1" name="TesteBDD">TesteBDD</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
