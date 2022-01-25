@@ -14,5 +14,11 @@ recuperar marcas cadastradas na webmotors
 recuperar modelos cadastradas na webmotors
   Requisitar modelos "2"
   Conferir o status code modelos  200
-  Conferir o reason modelos    OK
+  Conferir o reason modelos  OK
+
+recuperar versões cadastradas na webmotors
+  Requisitar versoes "2"
+  Conferir o status code versoes  200
+  Conferir o reason versoes  OK
+
 *** Keywords ***

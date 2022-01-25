@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.10.2 on win32)" generated="20220125 14:22:24.940" rpa="false" schemaversion="2">
+<suite id="s1" name="TesteAPI" source="C:\Users\thigo\projeto teste\Teste\API\TesteAPI.robot">
+<kw name="Conectar API" library="ResourceAPI" type="SETUP">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>APIWeb</arg>
+<arg>${URL_API}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220125 14:22:25.082" level="INFO">Creating Session using : alias=APIWeb, url=https://desafioonline.webmotors.com.br/api/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220125 14:22:25.082" endtime="20220125 14:22:25.082"/>
+</kw>
+<status status="PASS" starttime="20220125 14:22:25.081" endtime="20220125 14:22:25.082"/>
+</kw>
+<test id="s1-t1" name="recuperar marcas cadastradas na webmotors">
+<kw name="Requisitar todas as marcas" library="ResourceAPI">
+<kw name="Get Request" library="RequestsLibrary">
+<var>${MARCAS}</var>
+<arg>APIWeb</arg>
+<arg>OnlineChallenge/Make</arg>
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<msg timestamp="20220125 14:22:25.766" level="INFO">GET Request : url=https://desafioonline.webmotors.com.br/api//OnlineChallenge/Make 
+ path_url=/api//OnlineChallenge/Make 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220125 14:22:25.766" level="INFO">GET Response : url=https://desafioonline.webmotors.com.br/api//OnlineChallenge/Make 
+ status=200, reason=OK 
+ body=[{"ID":1,"Name":"Chevrolet"},{"ID":2,"Name":"Honda"},{"ID":3,"Name":"Ford"}] 
+ </msg>
+<msg timestamp="20220125 14:22:25.766" level="INFO">C:\Users\thigo\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'desafioonline.webmotors.com.br'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220125 14:22:25.769" level="INFO">${MARCAS} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220125 14:22:25.083" endtime="20220125 14:22:25.769"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${MARCAS.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220125 14:22:25.771" level="INFO">[{"ID":1,"Name":"Chevrolet"},{"ID":2,"Name":"Honda"},{"ID":3,"Name":"Ford"}]</msg>
+<status status="PASS" starttime="20220125 14:22:25.770" endtime="20220125 14:22:25.772"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${MARCAS}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220125 14:22:25.772" level="INFO">${MARCAS} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220125 14:22:25.772" endtime="20220125 14:22:25.772"/>
+</kw>
+<status status="PASS" starttime="20220125 14:22:25.083" endtime="20220125 14:22:25.773"/>
+</kw>
+<kw name="Conferir o status code" library="ResourceAPI">
+<arg>200</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${MARCAS.status_code}</arg>
+<arg>${STATUS_MARCAS}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20220125 14:22:25.774" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20220125 14:22:25.773" endtime="20220125 14:22:25.774"/>
+</kw>
+<status status="PASS" starttime="20220125 14:22:25.773" endtime="20220125 14:22:25.774"/>
+</kw>
+<kw name="Conferir o reason" library="ResourceAPI">
+<arg>OK</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${MARCAS.reason}</arg>
+<arg>${REASON_MARCAS}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20220125 14:22:25.775" endtime="20220125 14:22:25.776"/>
+</kw>
+<status status="PASS" starttime="20220125 14:22:25.774" endtime="20220125 14:22:25.776"/>
+</kw>
+<kw name="Conferir as marcas" library="ResourceAPI">
+<kw name="Length Should Be" library="BuiltIn">
+<arg>${MARCAS.json()}</arg>
+<arg>3</arg>
+<doc>Verifies that the length of the given item is correct.</doc>
+<msg timestamp="20220125 14:22:25.777" level="INFO">Length is 3</msg>
+<status status="PASS" starttime="20220125 14:22:25.776" endtime="20220125 14:22:25.777"/>
+</kw>
+<status status="PASS" starttime="20220125 14:22:25.776" endtime="20220125 14:22:25.777"/>
+</kw>
+<status status="PASS" starttime="20220125 14:22:25.082" endtime="20220125 14:22:25.777"/>
+</test>
+<test id="s1-t2" name="recuperar modelos cadastradas na webmotors">
+<kw name="Requisitar modelos &quot;2&quot;" library="ResourceAPI" sourcename="Requisitar modelos &quot;${ID}&quot;">
+<kw name="Get Request" library="RequestsLibrary">
+<var>${MODELOS}</var>
+<arg>APIWeb</arg>
+<arg>OnlineChallenge/Model?MakeID=${ID}</arg>
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<msg timestamp="20220125 14:22:25.937" level="INFO">GET Request : url=https://desafioonline.webmotors.com.br/api//OnlineChallenge/Model?MakeID=2 
+ path_url=/api//OnlineChallenge/Model?MakeID=2 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220125 14:22:25.937" level="INFO">GET Response : url=https://desafioonline.webmotors.com.br/api//OnlineChallenge/Model?MakeID=2 
+ status=200, reason=OK 
+ body=[{"MakeID":2,"ID":4,"Name":"City"},{"MakeID":2,"ID":5,"Name":"CRV"},{"MakeID":2,"ID":6,"Name":"Fit"}] 
+ </msg>
+<msg timestamp="20220125 14:22:25.937" level="INFO">C:\Users\thigo\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'desafioonline.webmotors.com.br'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220125 14:22:25.939" level="INFO">${MODELOS} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220125 14:22:25.779" endtime="20220125 14:22:25.939"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${MODELOS.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220125 14:22:25.940" level="INFO">[{"MakeID":2,"ID":4,"Name":"City"},{"MakeID":2,"ID":5,"Name":"CRV"},{"MakeID":2,"ID":6,"Name":"Fit"}]</msg>
+<status status="PASS" starttime="20220125 14:22:25.939" endtime="20220125 14:22:25.941"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${MODELOS}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220125 14:22:25.941" level="INFO">${MODELOS} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220125 14:22:25.941" endtime="20220125 14:22:25.941"/>
+</kw>
+<status status="PASS" starttime="20220125 14:22:25.779" endtime="20220125 14:22:25.942"/>
+</kw>
+<kw name="Conferir o status code modelos" library="ResourceAPI">
+<arg>200</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${MODELOS.status_code}</arg>
+<arg>${STATUS_MODELOS}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20220125 14:22:25.944" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20220125 14:22:25.943" endtime="20220125 14:22:25.944"/>
+</kw>
+<status status="PASS" starttime="20220125 14:22:25.942" endtime="20220125 14:22:25.944"/>
+</kw>
+<kw name="Conferir o reason modelos" library="ResourceAPI">
+<arg>OK</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${MODELOS.reason}</arg>
+<arg>${REASON_MODELOS}}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20220125 14:22:25.946" level="FAIL">OK != OK}</msg>
+<status status="FAIL" starttime="20220125 14:22:25.945" endtime="20220125 14:22:25.946"/>
+</kw>
+<status status="FAIL" starttime="20220125 14:22:25.945" endtime="20220125 14:22:25.947"/>
+</kw>
+<status status="FAIL" starttime="20220125 14:22:25.778" endtime="20220125 14:22:25.947">OK != OK}</status>
+</test>
+<test id="s1-t3" name="recuperar versões cadastradas na webmotors">
+<kw name="Requisitar versoes &quot;2&quot;" library="ResourceAPI" sourcename="Requisitar versoes &quot;${ID}&quot;">
+<kw name="Get Request" library="RequestsLibrary">
+<var>${VERSOES}</var>
+<arg>APIWeb</arg>
+<arg>OnlineChallenge/Version?ModelID=${ID}</arg>
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<msg timestamp="20220125 14:22:26.120" level="INFO">GET Request : url=https://desafioonline.webmotors.com.br/api//OnlineChallenge/Version?ModelID=2 
+ path_url=/api//OnlineChallenge/Version?ModelID=2 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220125 14:22:26.120" level="INFO">GET Response : url=https://desafioonline.webmotors.com.br/api//OnlineChallenge/Version?ModelID=2 
+ status=200, reason=OK 
+ body=[{"ModelID":2,"ID":11,"Name":"1.5 DX 16V FLEX 4P AUTOMÁTICO"},{"ModelID":2,"ID":12,"Name":"1.5 LX 16V FLEX 4P MANUAL"},{"ModelID":2,"ID":13,"Name":"2.0 EXL 4X4 16V GASOLINA 4P AUTOMÁTICO"}] 
+ </msg>
+<msg timestamp="20220125 14:22:26.120" level="INFO">C:\Users\thigo\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'desafioonline.webmotors.com.br'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220125 14:22:26.121" level="INFO">${VERSOES} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220125 14:22:25.949" endtime="20220125 14:22:26.121"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${VERSOES.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220125 14:22:26.122" level="INFO">[{"ModelID":2,"ID":11,"Name":"1.5 DX 16V FLEX 4P AUTOMÁTICO"},{"ModelID":2,"ID":12,"Name":"1.5 LX 16V FLEX 4P MANUAL"},{"ModelID":2,"ID":13,"Name":"2.0 EXL 4X4 16V GASOLINA 4P AUTOMÁTICO"}]</msg>
+<status status="PASS" starttime="20220125 14:22:26.122" endtime="20220125 14:22:26.122"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${VERSOES}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220125 14:22:26.123" level="INFO">${VERSOES} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220125 14:22:26.123" endtime="20220125 14:22:26.123"/>
+</kw>
+<status status="PASS" starttime="20220125 14:22:25.949" endtime="20220125 14:22:26.123"/>
+</kw>
+<kw name="Conferir o status code versoes" library="ResourceAPI">
+<arg>200</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${VERSOES.status_code}</arg>
+<arg>${STATUS_VERSOES}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20220125 14:22:26.125" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20220125 14:22:26.124" endtime="20220125 14:22:26.125"/>
+</kw>
+<status status="PASS" starttime="20220125 14:22:26.124" endtime="20220125 14:22:26.125"/>
+</kw>
+<kw name="Conferir o reason versoes" library="ResourceAPI">
+<arg>OK</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${VERSOES.reason}</arg>
+<arg>${REASON_VERSOES}}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20220125 14:22:26.127" level="FAIL">OK != OK}</msg>
+<status status="FAIL" starttime="20220125 14:22:26.126" endtime="20220125 14:22:26.127"/>
+</kw>
+<status status="FAIL" starttime="20220125 14:22:26.126" endtime="20220125 14:22:26.127"/>
+</kw>
+<status status="FAIL" starttime="20220125 14:22:25.948" endtime="20220125 14:22:26.128">OK != OK}</status>
+</test>
+<doc>Documentação da API: https://desafioonline.webmotors.com.br/swagger/ui/index#!/OnlineChallenge</doc>
+<status status="FAIL" starttime="20220125 14:22:24.941" endtime="20220125 14:22:26.130"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="2" skip="0" id="s1" name="TesteAPI">TesteAPI</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

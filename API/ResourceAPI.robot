@@ -38,3 +38,16 @@ Conferir o status code modelos
 Conferir o reason modelos
   [Arguments]     ${REASON_MODELOS}
   Should Be Equal As Strings    ${MODELOS.reason}    ${REASON_MODELOS}}
+
+Requisitar versoes "${ID}"
+  ${VERSOES}  Get Request    APIWeb    OnlineChallenge/Version?ModelID=${ID}
+  Log    ${VERSOES.text}
+  Set Test Variable    ${VERSOES}
+
+Conferir o status code versoes
+  [Arguments]     ${STATUS_VERSOES}
+  Should Be Equal As Strings    ${VERSOES.status_code}    ${STATUS_VERSOES}
+
+Conferir o reason versoes
+  [Arguments]     ${REASON_VERSOES}
+  Should Be Equal As Strings    ${VERSOES.reason}    ${REASON_VERSOES}}
